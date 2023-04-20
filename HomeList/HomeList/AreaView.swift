@@ -37,27 +37,14 @@ enum AreaError: Error {
 struct AreaView: View {
     let area: Area
 
-    @ViewBuilder var imageView: some View {
-        AsyncImage(url: area.imageURL, content: { image in
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        }, placeholder: {
-            Color.black.opacity(0.4)
-        })
-    }
-
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text("Area")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(top: 10, bottom: 0)
-            Color.clear
-            // This is a neat little hack to be able to scale image with fill without stretching other elements outside of screen
-                .background(
-                    imageView
-                )
+            
+            RemoteImageView(url: area.imageURL)
                 .frame(height: 150)
                 .clipped()
 

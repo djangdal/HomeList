@@ -43,8 +43,6 @@ extension ListViewModel: ListViewModelProtocol {
 
                 return nil
             }
-
-            print("Props: \(self.properties)")
         } catch {
             print("Could not fetch properties: \(error)")
             // Here we could log somewhere and perhaps show some error to the user

@@ -47,23 +47,9 @@ struct PropertyView: View {
     let property: Property
     let isHighlighted: Bool
 
-    @ViewBuilder var imageView: some View {
-        AsyncImage(url: property.imageURL, content: { image in
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        }, placeholder: {
-            Color.black.opacity(0.4)
-        })
-    }
-
     var body: some View {
         VStack(alignment: .leading) {
-            Color.clear
-            // This is a neat little hack to be able to scale image with fill without stretching other elements outside of screen
-                .background(
-                    imageView
-                )
+            RemoteImageView(url: property.imageURL)
                 .frame(height: 150)
                 .styleForHighlighted(highlighted: isHighlighted)
                 .clipped()

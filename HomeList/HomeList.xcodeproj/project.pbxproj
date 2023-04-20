@@ -20,6 +20,8 @@
 		FACBC1D829F1BDAC00E04C94 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1D729F1BDAC00E04C94 /* View+Extension.swift */; };
 		FACBC1DA29F1CAA500E04C94 /* AreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1D929F1CAA500E04C94 /* AreaView.swift */; };
 		FACBC1DC29F1CABB00E04C94 /* PropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1DB29F1CABB00E04C94 /* PropertyView.swift */; };
+		FACBC1DE29F1D95500E04C94 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1DD29F1D95500E04C94 /* ImageDownloader.swift */; };
+		FACBC1E029F1D99400E04C94 /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1DF29F1D99400E04C94 /* RemoteImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		FACBC1D729F1BDAC00E04C94 /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		FACBC1D929F1CAA500E04C94 /* AreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaView.swift; sourceTree = "<group>"; };
 		FACBC1DB29F1CABB00E04C94 /* PropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyView.swift; sourceTree = "<group>"; };
+		FACBC1DD29F1D95500E04C94 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		FACBC1DF29F1D99400E04C94 /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +111,13 @@
 			isa = PBXGroup;
 			children = (
 				FACBC1A629F1B1D600E04C94 /* HomeListApp.swift */,
-				FACBC1D329F1B27C00E04C94 /* APIPropertyService.swift */,
 				FACBC1A829F1B1D600E04C94 /* ListView.swift */,
 				FACBC1D529F1B5EE00E04C94 /* ListViewModel.swift */,
 				FACBC1D929F1CAA500E04C94 /* AreaView.swift */,
 				FACBC1DB29F1CABB00E04C94 /* PropertyView.swift */,
+				FACBC1D329F1B27C00E04C94 /* APIPropertyService.swift */,
+				FACBC1DF29F1D99400E04C94 /* RemoteImageView.swift */,
+				FACBC1DD29F1D95500E04C94 /* ImageDownloader.swift */,
 				FACBC1D729F1BDAC00E04C94 /* View+Extension.swift */,
 				FACBC1AA29F1B1D700E04C94 /* Assets.xcassets */,
 				FACBC1AC29F1B1D700E04C94 /* Preview Content */,
@@ -281,7 +287,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FACBC1A929F1B1D600E04C94 /* ListView.swift in Sources */,
+				FACBC1E029F1D99400E04C94 /* RemoteImageView.swift in Sources */,
 				FACBC1A729F1B1D600E04C94 /* HomeListApp.swift in Sources */,
+				FACBC1DE29F1D95500E04C94 /* ImageDownloader.swift in Sources */,
 				FACBC1D829F1BDAC00E04C94 /* View+Extension.swift in Sources */,
 				FACBC1DA29F1CAA500E04C94 /* AreaView.swift in Sources */,
 				FACBC1D629F1B5EE00E04C94 /* ListViewModel.swift in Sources */,
@@ -453,6 +461,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,6 +491,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
