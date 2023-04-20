@@ -21,6 +21,21 @@ final class DetailedViewModel {
     init(apiService: APIPropertyServiceProtocol, property: Property) {
         self.apiService = apiService
         self.property = DetailedProperty(property: property)
+        Task {
+            await fetchDetailedInfo()
+        }
+    }
+}
+
+private extension DetailedViewModel {
+    @MainActor func fetchDetailedInfo() async {
+        do {
+            let detailedResponse = try await apiService.getDetailedInfo()
+            self.property = DetailedProperty(apiResponse: detailedResponse)
+        } catch {
+            print("Could not fetch properties: \(error)")
+            // Here we could log somewhere and perhaps show some error to the user
+        }
     }
 }
 

@@ -24,6 +24,7 @@
 		FACBC1E029F1D99400E04C94 /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1DF29F1D99400E04C94 /* RemoteImageView.swift */; };
 		FACBC1E429F1DE2500E04C94 /* DetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1E329F1DE2500E04C94 /* DetailedView.swift */; };
 		FACBC1E629F1E19C00E04C94 /* DetailedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1E529F1E19C00E04C94 /* DetailedViewModel.swift */; };
+		FACBC1E829F1E6C100E04C94 /* DetailedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1E729F1E6C100E04C94 /* DetailedProperty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		FACBC1DF29F1D99400E04C94 /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
 		FACBC1E329F1DE2500E04C94 /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
 		FACBC1E529F1E19C00E04C94 /* DetailedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewModel.swift; sourceTree = "<group>"; };
+		FACBC1E729F1E6C100E04C94 /* DetailedProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedProperty.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,12 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				FACBC1A629F1B1D600E04C94 /* HomeListApp.swift */,
-				FACBC1A829F1B1D600E04C94 /* ListView.swift */,
-				FACBC1D529F1B5EE00E04C94 /* ListViewModel.swift */,
-				FACBC1E329F1DE2500E04C94 /* DetailedView.swift */,
-				FACBC1E529F1E19C00E04C94 /* DetailedViewModel.swift */,
-				FACBC1D929F1CAA500E04C94 /* AreaView.swift */,
-				FACBC1DB29F1CABB00E04C94 /* PropertyView.swift */,
+				FACBC1EA29F1E6DB00E04C94 /* List */,
+				FACBC1E929F1E6D100E04C94 /* Detailed */,
 				FACBC1D329F1B27C00E04C94 /* APIPropertyService.swift */,
 				FACBC1DF29F1D99400E04C94 /* RemoteImageView.swift */,
 				FACBC1DD29F1D95500E04C94 /* ImageDownloader.swift */,
@@ -154,6 +152,27 @@
 				FACBC1C329F1B1D700E04C94 /* HomeListUITestsLaunchTests.swift */,
 			);
 			path = HomeListUITests;
+			sourceTree = "<group>";
+		};
+		FACBC1E929F1E6D100E04C94 /* Detailed */ = {
+			isa = PBXGroup;
+			children = (
+				FACBC1E329F1DE2500E04C94 /* DetailedView.swift */,
+				FACBC1E529F1E19C00E04C94 /* DetailedViewModel.swift */,
+				FACBC1E729F1E6C100E04C94 /* DetailedProperty.swift */,
+			);
+			path = Detailed;
+			sourceTree = "<group>";
+		};
+		FACBC1EA29F1E6DB00E04C94 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				FACBC1A829F1B1D600E04C94 /* ListView.swift */,
+				FACBC1D529F1B5EE00E04C94 /* ListViewModel.swift */,
+				FACBC1D929F1CAA500E04C94 /* AreaView.swift */,
+				FACBC1DB29F1CABB00E04C94 /* PropertyView.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +321,7 @@
 				FACBC1D629F1B5EE00E04C94 /* ListViewModel.swift in Sources */,
 				FACBC1E629F1E19C00E04C94 /* DetailedViewModel.swift in Sources */,
 				FACBC1DC29F1CABB00E04C94 /* PropertyView.swift in Sources */,
+				FACBC1E829F1E6C100E04C94 /* DetailedProperty.swift in Sources */,
 				FACBC1D429F1B27C00E04C94 /* APIPropertyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
