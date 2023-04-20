@@ -10,27 +10,52 @@ import XCTest
 
 final class HomeListTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testCreateProperty_hasCorrectValues() throws{
+        let item = PropertiesResponse.Item(type: "Value 1",
+                                           id: "Value 2",
+                                           area: "Value 3",
+                                           askingPrice: 1,
+                                           averagePrice: 2,
+                                           monthlyFee: 3,
+                                           municipality: "Value 4",
+                                           daysSincePublish: 4,
+                                           ratingFormatted: "Value 5",
+                                           livingArea: 5,
+                                           numberOfRooms: 6,
+                                           streetAddress: "Value 6",
+                                           description: "Value 7",
+                                           image: URL(string: "http://example.com")!)
+        let property = try Property(apiItem: item)
+        XCTAssertEqual(property.id, "Value 2")
+        XCTAssertEqual(property.imageURL, URL(string: "http://example.com")!)
+        XCTAssertEqual(property.address, "Value 6")
+        XCTAssertEqual(property.municipality, "Value 4")
+        XCTAssertEqual(property.price, 1)
+        XCTAssertEqual(property.area, "Value 3")
+        XCTAssertEqual(property.numberOfRooms, 6)
+        XCTAssertEqual(property.livingArea, 5)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testCreateArea_hasCorrectValues() throws{
+        let item = PropertiesResponse.Item(type: "Value 1",
+                                           id: "Value 2",
+                                           area: "Value 3",
+                                           askingPrice: 1,
+                                           averagePrice: 2,
+                                           monthlyFee: 3,
+                                           municipality: "Value 4",
+                                           daysSincePublish: 4,
+                                           ratingFormatted: "Value 5",
+                                           livingArea: 5,
+                                           numberOfRooms: 6,
+                                           streetAddress: "Value 6",
+                                           description: "Value 7",
+                                           image: URL(string: "http://example.com")!)
+        let area = try Area(apiItem: item)
+        XCTAssertEqual(area.id, "Value 2")
+        XCTAssertEqual(area.areaName, "Value 3")
+        XCTAssertEqual(area.rating, "Value 5")
+        XCTAssertEqual(area.averagePrice, 2)
+        XCTAssertEqual(area.imageURL, URL(string: "http://example.com")!)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

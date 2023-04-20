@@ -40,6 +40,7 @@ struct ListView<ViewModel: ListViewModelProtocol>: View {
             .padding(horizontal: 15)
             .background(Color.black.opacity(0.05))
         }
+        .refreshable(action: viewModel.fetchProperties)
     }
 }
 

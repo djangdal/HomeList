@@ -9,7 +9,7 @@ import Foundation
 
 protocol ListViewModelProtocol: ObservableObject {
     var properties: [PropertyType] { get }
-    func fetchProperties() async
+    @Sendable func fetchProperties() async
 }
 
 final class ListViewModel {
