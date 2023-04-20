@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Property {
+struct Property: Identifiable {
     let id: String
     let imageURL: URL
     let address: String

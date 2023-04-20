@@ -10,8 +10,7 @@ import SwiftUI
 
 protocol ListViewModelProtocol: ObservableObject {
     var properties: [PropertyType] { get }
-    func viewForPropertyWith(id: String) -> AnyView
-    @Sendable func fetchProperties() async
+    func viewForProperty(_ property: Property) -> AnyView
 }
 
 final class ListViewModel {
@@ -26,7 +25,7 @@ final class ListViewModel {
     }
 }
 
-extension ListViewModel: ListViewModelProtocol {
+private extension ListViewModel {
     @MainActor func fetchProperties() async {
         do {
             self.properties = try await apiService.getListOfProperties().items.compactMap { item in
@@ -50,9 +49,12 @@ extension ListViewModel: ListViewModelProtocol {
             // Here we could log somewhere and perhaps show some error to the user
         }
     }
+}
 
-    func viewForPropertyWith(id: String) -> AnyView {
-        let view = DetailedView()
+extension ListViewModel: ListViewModelProtocol {
+    func viewForProperty(_ property: Property) -> AnyView {
+        let viewModel = DetailedViewModel(apiService: apiService, property: property)
+        let view = DetailedView(viewModel: viewModel)
         return AnyView(view)
     }
 }

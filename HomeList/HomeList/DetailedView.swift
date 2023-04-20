@@ -16,53 +16,72 @@ struct DetailedProperty {
     let area: String
     let numberOfRooms: Int
     let livingArea: Int
-    let description: String
-    let patio: String
+    let description: String?
+    let patio: String?
 }
 
-struct DetailedView: View {
-    let property: DetailedProperty
+extension DetailedProperty {
+    init(property: Property) {
+        id = property.id
+        imageURL = property.imageURL
+        address = property.address
+        municipality = property.municipality
+        price = property.price
+        area = property.area
+        numberOfRooms = property.numberOfRooms
+        livingArea = property.livingArea
+        description = nil
+        patio = nil
+    }
+}
+
+struct DetailedView<ViewModel: DetailedViewModelProtocol>: View {
+    let viewModel: ViewModel
 
     var body: some View {
         VStack(alignment: .leading) {
-            RemoteImageView(url: property.imageURL)
+            RemoteImageView(url: viewModel.property.imageURL)
                 .frame(height: 200)
                 .clipped()
                 .padding(top: 10)
 
-            Text(property.address)
+            Text(viewModel.property.address)
                 .foregroundColor(.black)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(bottom: 1)
 
-            Text("\(property.area), \(property.municipality)")
+            Text("\(viewModel.property.area), \(viewModel.property.municipality)")
                 .foregroundColor(.black.opacity(0.5))
                 .font(.body)
                 .padding(bottom: 1)
 
-            Text("\(property.price) SEK")
+            Text("\(viewModel.property.price) SEK")
                 .font(.title2)
                 .fontWeight(.bold)
 
-            Text(property.description)
-                .font(.body)
-                .padding(vertical: 20)
+            if let description = viewModel.property.description {
+                Text(description)
+                    .font(.body)
+                    .padding(vertical: 20)
+            }
 
             VStack(alignment: .leading, spacing: 4) {
-                Text("Living area: \(property.livingArea) m\u{00B2}")
+                Text("Living area: \(viewModel.property.livingArea) m\u{00B2}")
                     .font(.body)
                     .fontWeight(.bold)
 
-                Text("Number of rooms: \(property.numberOfRooms)")
+                Text("Number of rooms: \(viewModel.property.numberOfRooms)")
                     .font(.body)
                     .fontWeight(.bold)
 
-                Text("Patio: \(property.patio)")
-                    .font(.body)
-                    .fontWeight(.bold)
+                if let patio = viewModel.property.patio {
+                    Text("Patio: \(patio)")
+                        .font(.body)
+                        .fontWeight(.bold)
+                }
 
-                Text("Days since publish: \(property.numberOfRooms)")
+                Text("Days since publish: \(viewModel.property.numberOfRooms)")
                     .font(.body)
                     .fontWeight(.bold)
             }
@@ -74,15 +93,19 @@ struct DetailedView: View {
 
 struct DetailedView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedView(property: DetailedProperty(id: "1",
-                                                imageURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Hus_i_svarttorp.jpg/800px-Hus_i_svarttorp.jpg")!,
-                                                address: "Mockvägen 1",
-                                                municipality: "Gällivare kommun",
-                                                price: 2650000,
-                                                area: "Heden",
-                                                numberOfRooms: 5,
-                                                livingArea: 120,
-                                                description: "The living room can be furnished according to your own wishes and tastes, here the whole family can gather and enjoy each other's company. From the living room you reach the terrace overlooking the lush courtyard which is located in undisturbed and secluded location.",
-                                                patio: "Yes"))
+        DetailedView(viewModel: MockViewModel())
     }
+}
+
+private final class MockViewModel: DetailedViewModelProtocol {
+    var property = DetailedProperty(id: "1",
+                                            imageURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Hus_i_svarttorp.jpg/800px-Hus_i_svarttorp.jpg")!,
+                                            address: "Mockvägen 1",
+                                            municipality: "Gällivare kommun",
+                                            price: 2650000,
+                                            area: "Heden",
+                                            numberOfRooms: 5,
+                                            livingArea: 120,
+                                            description: "The living room can be furnished according to your own wishes and tastes, here the whole family can gather and enjoy each other's company. From the living room you reach the terrace overlooking the lush courtyard which is located in undisturbed and secluded location.",
+                                            patio: "Yes")
 }
