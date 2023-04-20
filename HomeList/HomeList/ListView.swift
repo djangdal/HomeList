@@ -47,8 +47,9 @@ struct ListView: View {
             ForEach(properties) { property in
                 switch property {
                 case .highlitedProperty(let property):
-                    HighlightedPropertyView(property: property)
-                case .property(let property): Text("")
+                    PropertyView(property: property, isHighlighted: true)
+                case .property(let property):
+                    PropertyView(property: property, isHighlighted: false)
                 case .area(let area): Text("")
                 }
             }
@@ -59,8 +60,19 @@ struct ListView: View {
     }
 }
 
-struct HighlightedPropertyView: View {
+private extension View {
+    @ViewBuilder func styleForHighlighted(highlighted: Bool) -> some View {
+        if highlighted {
+            self.border(Color(red: 255, green: 215, blue: 0), width: 3) // This can be moved to a design system
+        } else {
+            self
+        }
+    }
+}
+
+struct PropertyView: View {
     let property: Property
+    let isHighlighted: Bool
 
     @ViewBuilder var imageView: some View {
         AsyncImage(url: property.imageURL, content: { image in
@@ -80,7 +92,7 @@ struct HighlightedPropertyView: View {
                     imageView
                 )
                 .frame(height: 150)
-                .border(Color(red: 255, green: 215, blue: 0), width: 3) // This can be moved to a design system
+                .styleForHighlighted(highlighted: isHighlighted)
                 .clipped()
                 .padding(top: 10)
 
@@ -126,7 +138,16 @@ struct ContentView_Previews: PreviewProvider {
                                                   price: 2650000,
                                                   area: "Heden",
                                                   numberOfRooms: 5,
-                                                  livingArea: 120))
+                                                  livingArea: 120)),
+
+                .property(property: Property(id: "2",
+                                             imageURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Arkitekt_Peder_Magnussen_hus_H%C3%B8nefoss_HDR.jpg")!,
+                                             address: "Mockvägen 2",
+                                             minicipality: "Stockholm",
+                                             price: 6950000,
+                                             area: "Nedre Gärdet",
+                                             numberOfRooms: 3,
+                                             livingArea: 85))
         ])
     }
 }
