@@ -15,6 +15,7 @@
 		FACBC1C229F1B1D700E04C94 /* HomeListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1C129F1B1D700E04C94 /* HomeListUITests.swift */; };
 		FACBC1C429F1B1D700E04C94 /* HomeListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1C329F1B1D700E04C94 /* HomeListUITestsLaunchTests.swift */; };
 		FACBC1D229F1B24100E04C94 /* CosyNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = FACBC1D129F1B24100E04C94 /* CosyNetwork */; };
+		FACBC1D429F1B27C00E04C94 /* APIPropertyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1D329F1B27C00E04C94 /* APIPropertyService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		FACBC1BD29F1B1D700E04C94 /* HomeListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACBC1C129F1B1D700E04C94 /* HomeListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListUITests.swift; sourceTree = "<group>"; };
 		FACBC1C329F1B1D700E04C94 /* HomeListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FACBC1D329F1B27C00E04C94 /* APIPropertyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPropertyService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				FACBC1A629F1B1D600E04C94 /* HomeListApp.swift */,
+				FACBC1D329F1B27C00E04C94 /* APIPropertyService.swift */,
 				FACBC1A829F1B1D600E04C94 /* ContentView.swift */,
 				FACBC1AA29F1B1D700E04C94 /* Assets.xcassets */,
 				FACBC1AC29F1B1D700E04C94 /* Preview Content */,
@@ -267,6 +270,7 @@
 			files = (
 				FACBC1A929F1B1D600E04C94 /* ContentView.swift in Sources */,
 				FACBC1A729F1B1D600E04C94 /* HomeListApp.swift in Sources */,
+				FACBC1D429F1B27C00E04C94 /* APIPropertyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
