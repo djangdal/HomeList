@@ -22,6 +22,7 @@
 		FACBC1DC29F1CABB00E04C94 /* PropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1DB29F1CABB00E04C94 /* PropertyView.swift */; };
 		FACBC1DE29F1D95500E04C94 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1DD29F1D95500E04C94 /* ImageDownloader.swift */; };
 		FACBC1E029F1D99400E04C94 /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1DF29F1D99400E04C94 /* RemoteImageView.swift */; };
+		FACBC1E429F1DE2500E04C94 /* DetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1E329F1DE2500E04C94 /* DetailedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		FACBC1DB29F1CABB00E04C94 /* PropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyView.swift; sourceTree = "<group>"; };
 		FACBC1DD29F1D95500E04C94 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		FACBC1DF29F1D99400E04C94 /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
+		FACBC1E329F1DE2500E04C94 /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				FACBC1A629F1B1D600E04C94 /* HomeListApp.swift */,
 				FACBC1A829F1B1D600E04C94 /* ListView.swift */,
 				FACBC1D529F1B5EE00E04C94 /* ListViewModel.swift */,
+				FACBC1E329F1DE2500E04C94 /* DetailedView.swift */,
 				FACBC1D929F1CAA500E04C94 /* AreaView.swift */,
 				FACBC1DB29F1CABB00E04C94 /* PropertyView.swift */,
 				FACBC1D329F1B27C00E04C94 /* APIPropertyService.swift */,
@@ -288,6 +291,7 @@
 			files = (
 				FACBC1A929F1B1D600E04C94 /* ListView.swift in Sources */,
 				FACBC1E029F1D99400E04C94 /* RemoteImageView.swift in Sources */,
+				FACBC1E429F1DE2500E04C94 /* DetailedView.swift in Sources */,
 				FACBC1A729F1B1D600E04C94 /* HomeListApp.swift in Sources */,
 				FACBC1DE29F1D95500E04C94 /* ImageDownloader.swift in Sources */,
 				FACBC1D829F1BDAC00E04C94 /* View+Extension.swift in Sources */,

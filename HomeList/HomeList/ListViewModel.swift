@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
 protocol ListViewModelProtocol: ObservableObject {
     var properties: [PropertyType] { get }
+    func viewForPropertyWith(id: String) -> AnyView
     @Sendable func fetchProperties() async
 }
 
@@ -47,5 +49,10 @@ extension ListViewModel: ListViewModelProtocol {
             print("Could not fetch properties: \(error)")
             // Here we could log somewhere and perhaps show some error to the user
         }
+    }
+
+    func viewForPropertyWith(id: String) -> AnyView {
+        let view = DetailedView()
+        return AnyView(view)
     }
 }

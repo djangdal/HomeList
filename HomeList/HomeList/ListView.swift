@@ -22,24 +22,32 @@ enum PropertyType: Identifiable {
 
 struct ListView<ViewModel: ListViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
+    @State var selectedProperty: PropertyType?
     
     var body: some View {
         ScrollView {
             VStack {
                 ForEach(viewModel.properties) { property in
-                    switch property {
-                    case .highlitedProperty(let property):
-                        PropertyView(property: property, isHighlighted: true)
-                    case .property(let property):
-                        PropertyView(property: property, isHighlighted: false)
-                    case .area(let area):
-                        AreaView(area: area)
+                    Button {
+                        selectedProperty = property
+                    } label: {
+                        switch property {
+                        case .highlitedProperty(let property):
+                            PropertyView(property: property, isHighlighted: true)
+                        case .property(let property):
+                            PropertyView(property: property, isHighlighted: false)
+                        case .area(let area):
+                            AreaView(area: area)
+                        }
                     }
                 }
             }
             .padding(horizontal: 15)
             .background(Color.black.opacity(0.05))
         }
+        .sheet(item: $selectedProperty, content: { property in
+            viewModel.viewForPropertyWith(id: property.id)
+        })
     }
 }
 
@@ -55,6 +63,7 @@ struct ContentView_Previews: PreviewProvider {
 private final class EmptyViewModel: ListViewModelProtocol {
     let properties: [PropertyType] = []
     func fetchProperties() async {}
+    func viewForPropertyWith(id: String) -> AnyView {AnyView(Text(""))}
 }
 
 private final class MockViewModel: ListViewModelProtocol {
@@ -84,5 +93,6 @@ private final class MockViewModel: ListViewModelProtocol {
     ]
     
     func fetchProperties() async {}
+    func viewForPropertyWith(id: String) -> AnyView {AnyView(Text(""))}
 }
 
