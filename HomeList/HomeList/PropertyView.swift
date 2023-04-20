@@ -8,6 +8,41 @@
 import Foundation
 import SwiftUI
 
+struct Property {
+    let id: String
+    let imageURL: URL
+    let address: String
+    let municipality: String
+    let price: Int
+    let area: String
+    let numberOfRooms: Int
+    let livingArea: Int
+}
+
+extension Property {
+    init(apiItem: PropertiesResponse.Item) throws {
+        self.id = apiItem.id
+        self.imageURL = apiItem.image
+        self.area = apiItem.area
+        guard let address = apiItem.streetAddress,
+        let municipality = apiItem.municipality,
+        let price = apiItem.askingPrice,
+        let numberOfRooms = apiItem.numberOfRooms,
+        let livingArea = apiItem.livingArea else {
+            throw PropertyError.missingInitParameters
+        }
+        self.address = address
+        self.municipality = municipality
+        self.price = price
+        self.numberOfRooms = numberOfRooms
+        self.livingArea = livingArea
+    }
+}
+
+enum PropertyError: Error {
+    case missingInitParameters
+}
+
 struct PropertyView: View {
     let property: Property
     let isHighlighted: Bool
@@ -40,7 +75,7 @@ struct PropertyView: View {
                 .fontWeight(.bold)
                 .padding(bottom: 1)
 
-            Text("\(property.area), \(property.minicipality)")
+            Text("\(property.area), \(property.municipality)")
                 .foregroundColor(.black.opacity(0.5))
                 .font(.body)
                 .padding(bottom: 1)
@@ -81,7 +116,7 @@ struct PropertyView_Previews: PreviewProvider {
         PropertyView(property: Property(id: "1",
                                         imageURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Hus_i_svarttorp.jpg/800px-Hus_i_svarttorp.jpg")!,
                                         address: "Mockvägen 1",
-                                        minicipality: "Gällivare kommun",
+                                        municipality: "Gällivare kommun",
                                         price: 2650000,
                                         area: "Heden",
                                         numberOfRooms: 5,
@@ -92,7 +127,7 @@ struct PropertyView_Previews: PreviewProvider {
         PropertyView(property: Property(id: "2",
                                         imageURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Arkitekt_Peder_Magnussen_hus_H%C3%B8nefoss_HDR.jpg")!,
                                         address: "Mockvägen 2",
-                                        minicipality: "Stockholm",
+                                        municipality: "Stockholm",
                                         price: 6950000,
                                         area: "Nedre Gärdet",
                                         numberOfRooms: 3,

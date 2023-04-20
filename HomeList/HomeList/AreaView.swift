@@ -8,6 +8,32 @@
 import Foundation
 import SwiftUI
 
+struct Area {
+    let id: String
+    let areaName: String
+    let rating: String
+    let averagePrice: Int
+    let imageURL: URL
+}
+
+extension Area {
+    init(apiItem: PropertiesResponse.Item) throws {
+        self.id = apiItem.id
+        self.imageURL = apiItem.image
+        self.areaName = apiItem.area
+        guard let rating = apiItem.ratingFormatted,
+              let averagePrice = apiItem.averagePrice else {
+            throw AreaError.missingInitParameters
+        }
+        self.rating = rating
+        self.averagePrice = averagePrice
+    }
+}
+
+enum AreaError: Error {
+    case missingInitParameters
+}
+
 struct AreaView: View {
     let area: Area
 

@@ -53,6 +53,7 @@ struct PropertiesResponse: Decodable {
         let id: String
         let area: String
         let askingPrice: Int?
+        let averagePrice: Int?
         let monthlyFee: Int?
         let municipality: String?
         let daysSincePublish: Int?
