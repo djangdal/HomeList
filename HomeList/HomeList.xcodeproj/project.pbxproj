@@ -18,6 +18,8 @@
 		FACBC1D429F1B27C00E04C94 /* APIPropertyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1D329F1B27C00E04C94 /* APIPropertyService.swift */; };
 		FACBC1D629F1B5EE00E04C94 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1D529F1B5EE00E04C94 /* ListViewModel.swift */; };
 		FACBC1D829F1BDAC00E04C94 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1D729F1BDAC00E04C94 /* View+Extension.swift */; };
+		FACBC1DA29F1CAA500E04C94 /* AreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1D929F1CAA500E04C94 /* AreaView.swift */; };
+		FACBC1DC29F1CABB00E04C94 /* PropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1DB29F1CABB00E04C94 /* PropertyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		FACBC1D329F1B27C00E04C94 /* APIPropertyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPropertyService.swift; sourceTree = "<group>"; };
 		FACBC1D529F1B5EE00E04C94 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		FACBC1D729F1BDAC00E04C94 /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		FACBC1D929F1CAA500E04C94 /* AreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaView.swift; sourceTree = "<group>"; };
+		FACBC1DB29F1CABB00E04C94 /* PropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				FACBC1D329F1B27C00E04C94 /* APIPropertyService.swift */,
 				FACBC1A829F1B1D600E04C94 /* ListView.swift */,
 				FACBC1D529F1B5EE00E04C94 /* ListViewModel.swift */,
+				FACBC1D929F1CAA500E04C94 /* AreaView.swift */,
+				FACBC1DB29F1CABB00E04C94 /* PropertyView.swift */,
 				FACBC1D729F1BDAC00E04C94 /* View+Extension.swift */,
 				FACBC1AA29F1B1D700E04C94 /* Assets.xcassets */,
 				FACBC1AC29F1B1D700E04C94 /* Preview Content */,
@@ -277,7 +283,9 @@
 				FACBC1A929F1B1D600E04C94 /* ListView.swift in Sources */,
 				FACBC1A729F1B1D600E04C94 /* HomeListApp.swift in Sources */,
 				FACBC1D829F1BDAC00E04C94 /* View+Extension.swift in Sources */,
+				FACBC1DA29F1CAA500E04C94 /* AreaView.swift in Sources */,
 				FACBC1D629F1B5EE00E04C94 /* ListViewModel.swift in Sources */,
+				FACBC1DC29F1CABB00E04C94 /* PropertyView.swift in Sources */,
 				FACBC1D429F1B27C00E04C94 /* APIPropertyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

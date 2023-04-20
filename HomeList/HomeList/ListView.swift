@@ -35,8 +35,8 @@ struct Area {
     let id: String
     let areaName: String
     let rating: String
-    let averagePrice: String
-    let url: URL
+    let averagePrice: Int
+    let imageURL: URL
 }
 
 struct ListView: View {
@@ -50,81 +50,14 @@ struct ListView: View {
                     PropertyView(property: property, isHighlighted: true)
                 case .property(let property):
                     PropertyView(property: property, isHighlighted: false)
-                case .area(let area): Text("")
+                case .area(let area):
+                    AreaView(area: area)
                 }
             }
             Spacer()
         }
         .padding([.horizontal], 15)
         .background(Color.black.opacity(0.05))
-    }
-}
-
-private extension View {
-    @ViewBuilder func styleForHighlighted(highlighted: Bool) -> some View {
-        if highlighted {
-            self.border(Color(red: 255, green: 215, blue: 0), width: 3) // This can be moved to a design system
-        } else {
-            self
-        }
-    }
-}
-
-struct PropertyView: View {
-    let property: Property
-    let isHighlighted: Bool
-
-    @ViewBuilder var imageView: some View {
-        AsyncImage(url: property.imageURL, content: { image in
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        }, placeholder: {
-            Color.black.opacity(0.4)
-        })
-    }
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            Color.clear
-            // This is a neat little hack to be able to scale image with fill without stretching other elements outside of screen
-                .background(
-                    imageView
-                )
-                .frame(height: 150)
-                .styleForHighlighted(highlighted: isHighlighted)
-                .clipped()
-                .padding(top: 10)
-
-            Text(property.address)
-                .foregroundColor(.black)
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(bottom: 1)
-
-            Text("\(property.area), \(property.minicipality)")
-                .foregroundColor(.black.opacity(0.5))
-                .font(.body)
-                .padding(bottom: 1)
-
-            HStack {
-                Text("\(property.price) SEK")
-                    .font(.body)
-                    .fontWeight(.bold)
-                Spacer()
-                Text("\(property.livingArea) m2")
-                    .font(.body)
-                    .fontWeight(.bold)
-                Spacer()
-                Text("\(property.numberOfRooms) rooms")
-                    .font(.body)
-                    .fontWeight(.bold)
-            }
-            .padding(bottom: 10)
-        }
-        .padding(horizontal: 10)
-        .background(Color.white)
-        .cornerRadius(14)
     }
 }
 
@@ -147,7 +80,12 @@ struct ContentView_Previews: PreviewProvider {
                                              price: 6950000,
                                              area: "Nedre Gärdet",
                                              numberOfRooms: 3,
-                                             livingArea: 85))
+                                             livingArea: 85)),
+            .area(area: Area(id: "1234567892",
+                             areaName: "Stockholm",
+                             rating: "4.5/5",
+                             averagePrice: 50100,
+                             imageURL: URL(string: "https://i.imgur.com/v6GDnCG.png")!))
         ])
     }
 }
