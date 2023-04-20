@@ -14,6 +14,7 @@
 		FACBC1B829F1B1D700E04C94 /* HomeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1B729F1B1D700E04C94 /* HomeListTests.swift */; };
 		FACBC1C229F1B1D700E04C94 /* HomeListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1C129F1B1D700E04C94 /* HomeListUITests.swift */; };
 		FACBC1C429F1B1D700E04C94 /* HomeListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBC1C329F1B1D700E04C94 /* HomeListUITestsLaunchTests.swift */; };
+		FACBC1D229F1B24100E04C94 /* CosyNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = FACBC1D129F1B24100E04C94 /* CosyNetwork */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACBC1D229F1B24100E04C94 /* CosyNetwork in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = HomeList;
+			packageProductDependencies = (
+				FACBC1D129F1B24100E04C94 /* CosyNetwork */,
+			);
 			productName = HomeList;
 			productReference = FACBC1A329F1B1D600E04C94 /* HomeList.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = FACBC19A29F1B1D600E04C94;
+			packageReferences = (
+				FACBC1D029F1B24100E04C94 /* XCRemoteSwiftPackageReference "CosyNetwork" */,
+			);
 			productRefGroup = FACBC1A429F1B1D600E04C94 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -583,6 +591,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FACBC1D029F1B24100E04C94 /* XCRemoteSwiftPackageReference "CosyNetwork" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/djangdal/CosyNetwork";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FACBC1D129F1B24100E04C94 /* CosyNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FACBC1D029F1B24100E04C94 /* XCRemoteSwiftPackageReference "CosyNetwork" */;
+			productName = CosyNetwork;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FACBC19B29F1B1D600E04C94 /* Project object */;
 }
