@@ -67,7 +67,6 @@ struct AreaView: View {
         }
         .padding(horizontal: 10)
         .background(Color.white)
-        .cornerRadius(14)
     }
 }
 

@@ -20,13 +20,43 @@ enum PropertyType: Identifiable {
     }
 }
 
+enum Filter: String, CaseIterable {
+    case all
+    case highlighted
+    case property
+    case area
+}
+
 struct ListView<ViewModel: ListViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
     @State var selectedProperty: Property?
-    
+    @State private var filter: Filter = .all
+    private let filterOptions: [Filter] = Filter.allCases
+
+    var header: some View {
+        VStack {
+            Spacer()
+            HStack(alignment: .bottom) {
+                Text("HomeList: \(viewModel.properties.count) listings")
+                Spacer()
+                Picker("Type", selection: $filter) {
+                    ForEach(filterOptions, id: \.self) {
+                        Text("\($0.rawValue.capitalized)")
+                    }
+                }
+                .pickerStyle(.menu)
+            }
+            .padding(horizontal: 20)
+            .padding(bottom: 10)
+        }
+        .frame(height: 120)
+        .background(Color(red: 228/255, green: 232/255, blue: 218/255))
+    }
+
     var body: some View {
-        ScrollView {
-            VStack {
+        VStack(spacing: 0) {
+            header
+            ScrollView {
                 ForEach(viewModel.properties) { property in
                     switch property {
                     case .highlitedProperty(let property):
@@ -41,12 +71,16 @@ struct ListView<ViewModel: ListViewModelProtocol>: View {
                         AreaView(area: area)
                     }
                 }
+                .padding(top: 10)
             }
             .padding(horizontal: 15)
-            .background(Color.black.opacity(0.05))
         }
+        .edgesIgnoringSafeArea(.top)
         .sheet(item: $selectedProperty, content: { property in
             viewModel.viewForProperty(property)
+        })
+        .onChange(of: filter, perform: { value in
+            viewModel.didSelectFilter(value)
         })
     }
 }
@@ -62,7 +96,7 @@ struct ContentView_Previews: PreviewProvider {
 
 private final class EmptyViewModel: ListViewModelProtocol {
     let properties: [PropertyType] = []
-    func fetchProperties() async {}
+    func didSelectFilter(_ value: Filter) {}
     func viewForProperty(_ property: Property) -> AnyView {AnyView(Text(""))}
 }
 
@@ -91,8 +125,8 @@ private final class MockViewModel: ListViewModelProtocol {
                          averagePrice: 50100,
                          imageURL: URL(string: "https://i.imgur.com/v6GDnCG.png")!))
     ]
-    
-    func fetchProperties() async {}
+
+    func didSelectFilter(_ value: Filter) {}
     func viewForProperty(_ property: Property) -> AnyView {AnyView(Text(""))}
 }
 
